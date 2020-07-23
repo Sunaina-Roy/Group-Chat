@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:group_chat/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 final _firestore = Firestore.instance;
 FirebaseUser loggedInUser;
@@ -83,7 +84,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: TextField(
                       controller: messageTextEditingController,
                       onChanged: (value) {
-                        messageText = value;
+                        if (value != null) {
+                          messageText = value;
+                        }
                       },
                       style: TextStyle(
                         fontSize: 17,
@@ -94,11 +97,22 @@ class _ChatScreenState extends State<ChatScreen> {
                   FlatButton(
                     onPressed: () {
                       messageTextEditingController.clear();
-                      _firestore.collection('messages').add({
-                        'text': messageText,
-                        'sender': loggedInUser.email,
-                        'date': FieldValue.serverTimestamp(),
-                      });
+                      if (messageText != null) {
+                        _firestore.collection('messages').add({
+                          'text': messageText,
+                          'sender': loggedInUser.email,
+                          'date': FieldValue.serverTimestamp(),
+                        });
+                      } else {
+                        Fluttertoast.showToast(
+                          msg: 'Please enter some text',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Colors.grey[300],
+                          textColor: Colors.black54,
+                          fontSize: 15,
+                        );
+                      }
                     },
                     child: Text(
                       'Send',
