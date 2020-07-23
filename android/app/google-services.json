@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1055159087218",
+    "firebase_url": "https://group-chat-aa897.firebaseio.com",
+    "project_id": "group-chat-aa897",
+    "storage_bucket": "group-chat-aa897.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055159087218:android:c14554b4449ba366ca12eb",
+        "android_client_info": {
+          "package_name": "co.sunaina.group_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055159087218-gn32c21cuv87haqngj2rceiocu3cv58t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdS_1qHywbtoomEd-MSrqPjgjv8mfd0XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055159087218-gn32c21cuv87haqngj2rceiocu3cv58t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
